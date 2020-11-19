@@ -690,6 +690,11 @@ class WebViewController {
     await _webViewPlatformController.clearCache();
     return reload();
   }
+  
+  /// Clears WebView internal back/forward list.
+  Future<void> clearHistory() async {
+    return _webViewPlatformController.clearHistory();
+  }
 
   Future<void> _updateWidget(WebView widget) async {
     _widget = widget;
