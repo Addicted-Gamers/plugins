@@ -207,6 +207,9 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
       case "clearCache":
         clearCache(result);
         break;
+      case "clearHistory":
+        clearHistory(result);
+        break;
       case "getTitle":
         getTitle(result);
         break;
@@ -311,6 +314,11 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
   private void clearCache(Result result) {
     webView.clearCache(true);
     WebStorage.getInstance().deleteAllData();
+    result.success(null);
+  }
+  
+  private void clearHistory(Result result) {
+    webView.clearHistory();
     result.success(null);
   }
 
